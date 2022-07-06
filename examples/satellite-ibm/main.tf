@@ -22,6 +22,6 @@ module "satellite-location" {
   location_bucket   = var.location_bucket
   host_labels       = var.host_labels
   ibm_region        = var.ibm_region
-  resource_group    = var.resource_group
+  resource_group_id = data.ibm_resource_group.resource_group.id
   host_provider     = "ibm"
 }

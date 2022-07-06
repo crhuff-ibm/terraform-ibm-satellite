@@ -3,9 +3,6 @@
 # Copyright 2021 IBM
 #####################################################
 
-data "ibm_resource_group" "rg_wp" {
-  name = var.resource_group
-}
 
 ###################################################################
 # Read openshift cluster
@@ -23,7 +20,7 @@ resource "ibm_satellite_cluster_worker_pool" "create_cluster_wp" {
 
   name               = var.worker_pool_name
   cluster            = data.ibm_satellite_cluster.read_cluster.0.id
-  resource_group_id  = data.ibm_resource_group.rg_wp.id
+  resource_group_id  = var.resource_group_id
   worker_count       = (var.worker_count != null ? var.worker_count : null)
   host_labels        = (var.host_labels != null ? var.host_labels : null)
   worker_pool_labels = (var.workerpool_labels != null ? var.workerpool_labels : null)

@@ -29,7 +29,7 @@ variable "kube_version" {
   type        = string
 }
 
-variable "resource_group" {
+variable "resource_group_id" {
   description = "Resource group name that has to be targeted"
   type        = string
 }
